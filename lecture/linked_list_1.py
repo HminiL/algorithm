@@ -85,6 +85,6 @@ def third_practice():
 
 
 if __name__ == '__main__':
-    # first_practice()
-    # second_practice()
+    first_practice()
+    second_practice()
     third_practice()
