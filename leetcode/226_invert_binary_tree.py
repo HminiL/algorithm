@@ -2,6 +2,7 @@
 https://leetcode.com/problems/invert-binary-tree/
 226. Invert Binary Tree
 easy
+Tree
 """
 from collections import deque
 from typing import Optional
@@ -27,16 +28,32 @@ class Solution:
         return root
 
 
+def is_same_tree(p: TreeNode, q: TreeNode) -> bool:
+    if not p or not q:
+        return p == q
+    if p.val != q.val:
+        return False
+    return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
+
+
 if __name__ == '__main__':
     s1 = Solution()
-    assert s1.invertTree(
-        TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7, TreeNode(6), TreeNode(9)))
-    ) == TreeNode(4, TreeNode(7, TreeNode(9), TreeNode(6)), TreeNode(2, TreeNode(3), TreeNode(1))), \
-        s1.invertTree(
-            TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7, TreeNode(6), TreeNode(9)))
-        )
+    assert is_same_tree(
+        s1.invertTree(TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7, TreeNode(6), TreeNode(9)))),
+        TreeNode(4, TreeNode(7, TreeNode(9), TreeNode(6)), TreeNode(2, TreeNode(3), TreeNode(1)))
+    ), \
+        s1.invertTree(TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7, TreeNode(6), TreeNode(9))))
+
     s2 = Solution()
-    assert s2.invertTree(TreeNode(2, TreeNode(1), TreeNode(3))) == TreeNode(2, TreeNode(3), TreeNode(1)), \
+    assert is_same_tree(
+        s2.invertTree(TreeNode(2, TreeNode(1), TreeNode(3))),
+        TreeNode(2, TreeNode(3), TreeNode(1))
+    ), \
         s2.invertTree(TreeNode(2, TreeNode(1), TreeNode(3)))
+
     s3 = Solution()
-    assert s3.invertTree(TreeNode()) == TreeNode(), s3.invertTree(TreeNode())
+    assert is_same_tree(
+        s3.invertTree(TreeNode()),
+        TreeNode()
+    ), \
+        s3.invertTree(TreeNode())
