@@ -2,6 +2,7 @@
 200. Number of Islands
 https://leetcode.com/problemset/all/?search=200&page=1
 Medium
+BFS / DFS
 """
 
 
