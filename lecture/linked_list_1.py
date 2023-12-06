@@ -21,7 +21,7 @@ def create_several_nodes(start: int, end: int):
     """
     head = Node(start)
     node = head
-    for i in range(start+1, end+1):
+    for i in range(start + 1, end + 1):
         node.next = Node(i)
         node = node.next
     return head
@@ -84,7 +84,7 @@ def third_practice():
     print_all_nodes(head)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     first_practice()
     second_practice()
     third_practice()

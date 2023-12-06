@@ -39,8 +39,7 @@ class NodeIntManagement:
                     node = node.next
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     linkedlist1 = NodeIntManagement(0)
     for i in range(1, 10):
         linkedlist1.add(i)

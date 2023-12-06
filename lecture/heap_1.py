@@ -42,8 +42,10 @@ class MaxHeap:
 
         while self.move_up(inserted_idx):
             parent_idx = inserted_idx // 2
-            self.heap_array[inserted_idx], self.heap_array[parent_idx] = self.heap_array[parent_idx], self.heap_array[
-                inserted_idx]
+            self.heap_array[inserted_idx], self.heap_array[parent_idx] = (
+                self.heap_array[parent_idx],
+                self.heap_array[inserted_idx],
+            )
             inserted_idx = parent_idx
 
         return True
@@ -61,15 +63,25 @@ class MaxHeap:
             left_child_idx = popped_idx * 2
             right_child_idx = popped_idx * 2 + 1
 
-            if right_child_idx >= len(self.heap_array) and self.heap_array[popped_idx] < self.heap_array[
-                left_child_idx]:
-                self.heap_array[right_child_idx], self.heap_array[popped_idx] = self.heap_array[popped_idx], \
-                self.heap_array[right_child_idx]
+            if (
+                right_child_idx >= len(self.heap_array)
+                and self.heap_array[popped_idx] < self.heap_array[left_child_idx]
+            ):
+                self.heap_array[right_child_idx], self.heap_array[popped_idx] = (
+                    self.heap_array[popped_idx],
+                    self.heap_array[right_child_idx],
+                )
             else:
-                if self.heap_array[popped_idx] < self.heap_array[
-                    bigger_child_idx := max(right_child_idx, left_child_idx)]:
-                    self.heap_array[popped_idx], self.heap_array[bigger_child_idx] = self.heap_array[bigger_child_idx], \
+                if (
                     self.heap_array[popped_idx]
+                    < self.heap_array[
+                        bigger_child_idx := max(right_child_idx, left_child_idx)
+                    ]
+                ):
+                    self.heap_array[popped_idx], self.heap_array[bigger_child_idx] = (
+                        self.heap_array[bigger_child_idx],
+                        self.heap_array[popped_idx],
+                    )
         return returned_data
 
 
@@ -99,12 +111,14 @@ class MinHeap:
 
         while self.move_up(inserted_idx):
             parent_idx = inserted_idx // 2
-            self.heap_array[inserted_idx], self.heap_array[parent_idx] = self.heap_array[parent_idx], self.heap_array[
-                inserted_idx]
+            self.heap_array[inserted_idx], self.heap_array[parent_idx] = (
+                self.heap_array[parent_idx],
+                self.heap_array[inserted_idx],
+            )
             inserted_idx = parent_idx
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     max_heap = MaxHeap(15)
     max_heap.insert(10)
     max_heap.insert(8)

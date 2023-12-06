@@ -90,9 +90,12 @@ class NodeMgmt:
                     self.change_node_parent = self.change_node
                     self.change_node = self.change_node.left
                 if self.change_node.right:
-                    self.change_node_parent.left = self.change_node.right  # connect change_node_parent and change_node.right
+                    self.change_node_parent.left = (
+                        self.change_node.right
+                    )  # connect change_node_parent and change_node.right
                 else:
-                    self.change_node_parent.left = None # if change_node.right is None, just delete change_node_parent.left
+                    # if change_node.right is None, just delete change_node_parent.left
+                    self.change_node_parent.left = None
                 self.parent.left = self.change_node  # connect parent and change_node
                 self.change_node.right = self.current_node.right
                 self.current_node.left = self.current_node.left
@@ -116,6 +119,7 @@ class NodeMgmt:
 def check_binary_tree():
     # insert random value in binary tree
     import random
+
     bst_nums = set()
     while len(bst_nums) != 100:
         bst_nums.add(random.randint(0, 999))
@@ -127,9 +131,9 @@ def check_binary_tree():
     # check search function
     for num in bst_nums:
         if binary_tree.search(num) is False:
-            print('search failed', num)
+            print("search failed", num)
         else:
-            print('search success', num)
+            print("search success", num)
 
     # check delete function
     delete_nums = set()
@@ -138,16 +142,14 @@ def check_binary_tree():
         delete_nums.add(bst_nums[random.randint(0, 99)])
     for del_num in delete_nums:
         if binary_tree.delete(del_num) is False:
-            print('delete failed', del_num)
+            print("delete failed", del_num)
         else:
-            print('delete success', del_num)
+            print("delete success", del_num)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # head = Node(21)
     # bst = NodeMgmt(head)
     # bst.insert(15)
     # print(bst.current_node.left.value)
     check_binary_tree()
-
-
