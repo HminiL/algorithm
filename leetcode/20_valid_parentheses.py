@@ -15,11 +15,11 @@ class Solution:
             else:
                 if not valid_list:
                     return False
-                elif valid_list[-1] == '(' and x == ')':
+                elif valid_list[-1] == "(" and x == ")":
                     valid_list.pop()
-                elif valid_list[-1] == '{' and x == '}':
+                elif valid_list[-1] == "{" and x == "}":
                     valid_list.pop()
-                elif valid_list[-1] == '[' and x == ']':
+                elif valid_list[-1] == "[" and x == "]":
                     valid_list.pop()
                 else:
                     return False
@@ -28,7 +28,7 @@ class Solution:
 
 class Solution2:
     def isValid(self, s: str) -> bool:
-        d = {'(': ')', '{': '}', '[': ']'}
+        d = {"(": ")", "{": "}", "[": "]"}
         stack = []
         for i in s:
             if i in d:
@@ -38,6 +38,6 @@ class Solution2:
         return not stack
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(Solution().isValid("["))
     print(Solution2().isValid("["))

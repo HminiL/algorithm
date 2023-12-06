@@ -28,9 +28,15 @@ class Solution1:
                     land = need_visit.pop()
                     if land not in visited:
                         visited.append(land)
-                        if land[1] + 1 < len(grid[h]) and grid[land[0]][land[1] + 1] == "1":
+                        if (
+                            land[1] + 1 < len(grid[h])
+                            and grid[land[0]][land[1] + 1] == "1"
+                        ):
                             need_visit.append([land[0], land[1] + 1])
-                        if land[0] + 1 < len(grid) and grid[land[0] + 1][land[1]] == "1":
+                        if (
+                            land[0] + 1 < len(grid)
+                            and grid[land[0] + 1][land[1]] == "1"
+                        ):
                             need_visit.append([land[0] + 1, land[1]])
                         if land[1] - 1 >= 0 and grid[land[0]][land[1] - 1] == "1":
                             need_visit.append([land[0], land[1] - 1])
@@ -55,16 +61,13 @@ class Solution2:
         while stack:
             xx, yy = stack.pop()
             grid[xx][yy] = "2"
-            for i, j in [[xx, yy+1], [xx+1, yy], [xx, yy-1], [xx-1, yy]]:
+            for i, j in [[xx, yy + 1], [xx + 1, yy], [xx, yy - 1], [xx - 1, yy]]:
                 if 0 <= i < x_bound and 0 <= j < y_bound and grid[i][j] == "1":
                     stack.append((i, j))
-        return count+1
+        return count + 1
 
 
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     # s = Solution1()
     # assert s.numIslands([
     #     ["1", "1", "1", "1", "0"],
@@ -80,19 +83,39 @@ if __name__ == '__main__':
     #     ])
 
     s2 = Solution2()
-    assert s2.numIslands([
-        ["1", "1", "1", "1", "0"],
-        ["1", "1", "0", "1", "0"],
-        ["1", "1", "0", "0", "0"],
-        ["0", "0", "0", "0", "0"]
-    ]) == 1, \
-        s2.numIslands([
+    assert (
+        s2.numIslands(
+            [
+                ["1", "1", "1", "1", "0"],
+                ["1", "1", "0", "1", "0"],
+                ["1", "1", "0", "0", "0"],
+                ["0", "0", "0", "0", "0"],
+            ]
+        )
+        == 1
+    ), s2.numIslands(
+        [
             ["1", "1", "1", "1", "0"],
             ["1", "1", "0", "1", "0"],
             ["1", "1", "0", "0", "0"],
-            ["0", "0", "0", "0", "0"]
-        ])
-    assert s2.numIslands([["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"],
-                          ["0", "0", "0", "1", "1"]]) == 3, \
+            ["0", "0", "0", "0", "0"],
+        ]
+    )
+    assert (
         s2.numIslands(
-        [["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"], ["0", "0", "0", "1", "1"]])
+            [
+                ["1", "1", "0", "0", "0"],
+                ["1", "1", "0", "0", "0"],
+                ["0", "0", "1", "0", "0"],
+                ["0", "0", "0", "1", "1"],
+            ]
+        )
+        == 3
+    ), s2.numIslands(
+        [
+            ["1", "1", "0", "0", "0"],
+            ["1", "1", "0", "0", "0"],
+            ["0", "0", "1", "0", "0"],
+            ["0", "0", "0", "1", "1"],
+        ]
+    )

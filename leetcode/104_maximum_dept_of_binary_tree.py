@@ -32,8 +32,12 @@ class Solution:
         return depth
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = Solution()
-    assert s.maxDepth(TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))) == 3, \
+    assert (
         s.maxDepth(TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7))))
-    assert s.maxDepth(TreeNode(1, None, TreeNode(2))) == 2, s.maxDepth(TreeNode(1, None, TreeNode(2)))
+        == 3
+    ), s.maxDepth(TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7))))
+    assert s.maxDepth(TreeNode(1, None, TreeNode(2))) == 2, s.maxDepth(
+        TreeNode(1, None, TreeNode(2))
+    )

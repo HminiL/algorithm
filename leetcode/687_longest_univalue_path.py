@@ -85,7 +85,7 @@ class Solution3:
         return res[0]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # s1 = Solution()
     # assert s1.longestUnivaluePath(
     #     TreeNode(5, TreeNode(4, TreeNode(1), TreeNode(1)), TreeNode(5, None, TreeNode(5)))) == 2, \
@@ -99,6 +99,15 @@ if __name__ == '__main__':
     #     TreeNode(5, TreeNode(4, TreeNode(1), TreeNode(1)), TreeNode(5, None, TreeNode(5)))) == 2, \
     #     s3.longestUnivaluePath(TreeNode(5, TreeNode(4, TreeNode(1), TreeNode(1)), TreeNode(5, None, TreeNode(5))))
     s4 = Solution3()
-    assert s4.longestUnivaluePath(
-        TreeNode(5, TreeNode(4, TreeNode(1), TreeNode(1)), TreeNode(5, None, TreeNode(5)))) == 2, \
-        s4.longestUnivaluePath(TreeNode(5, TreeNode(4, TreeNode(1), TreeNode(1)), TreeNode(5, None, TreeNode(5))))
+    assert (
+        s4.longestUnivaluePath(
+            TreeNode(
+                5, TreeNode(4, TreeNode(1), TreeNode(1)), TreeNode(5, None, TreeNode(5))
+            )
+        )
+        == 2
+    ), s4.longestUnivaluePath(
+        TreeNode(
+            5, TreeNode(4, TreeNode(1), TreeNode(1)), TreeNode(5, None, TreeNode(5))
+        )
+    )

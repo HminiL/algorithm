@@ -18,7 +18,6 @@ class TreeNode:
 
 class Solution:
     def bstToGst(self, root: TreeNode) -> TreeNode:
-        val: int = 0
         if root:
             self.bstToGst(root.right)
             self.val += root.val
@@ -27,5 +26,5 @@ class Solution:
         return root
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

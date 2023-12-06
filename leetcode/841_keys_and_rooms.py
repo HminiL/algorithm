@@ -20,7 +20,11 @@ class Solution:
         return len(visit_room) == len(rooms)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = Solution()
-    assert s.canVisitAllRooms([[1], [2], [3], []]) is True, s.canVisitAllRooms([[1], [2], [3], []])
-    assert s.canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]) is False, s.canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]])
+    assert s.canVisitAllRooms([[1], [2], [3], []]) is True, s.canVisitAllRooms(
+        [[1], [2], [3], []]
+    )
+    assert (
+        s.canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]) is False
+    ), s.canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]])

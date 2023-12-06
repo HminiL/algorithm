@@ -15,5 +15,5 @@ class Solution:
                 digit_list.append(log)
             else:
                 string_list.append(log)
-        string_list = sorted(string_list, key=lambda x:(x.split()[1:], x.split()[0]))
+        string_list = sorted(string_list, key=lambda x: (x.split()[1:], x.split()[0]))
         return string_list + digit_list
